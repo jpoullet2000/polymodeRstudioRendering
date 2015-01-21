@@ -1,0 +1,69 @@
+<p>This is a document to explain how to use emacs and its <a href="https://github.com/vspinu/polymode">polymode mode</a> to generate RStudio-like HTML file.</p>
+<h2 id="generate-your-html-file-from-emacspolymode-mode."><a name="convertHTML"></a> Generate your HTML file from Emacs/polymode mode.</h2>
+<p>Polymode allows you to use knitr with Rmd files and export them to many output format (using the Pandoc exporter). To do so, one just type <em>alt-n e</em> and choose the output format in the list of available formats (HTML, Beamer tex, epub, md, etc). You need to select <em>HTML 5 (html)</em>. Since you can use knitr, you can have R code embedded in your document.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(knitr)
+<span class="kw">kable</span>(<span class="kw">head</span>(iris))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Sepal.Length</th>
+<th style="text-align: right;">Sepal.Width</th>
+<th style="text-align: right;">Petal.Length</th>
+<th style="text-align: right;">Petal.Width</th>
+<th style="text-align: left;">Species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">5.1</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.9</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4.7</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">1.3</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4.6</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5.0</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5.4</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">1.7</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: left;">setosa</td>
+</tr>
+</tbody>
+</table>
+<h2 id="transform-your-ugly-html-file-in-a-good-looking-rstudio-like-html-file"><a name="material"></a> Transform your ugly HTML file in a good-looking RStudio-like HTML file</h2>
+<p>To convert your HTML file, put the following files into the same directory (it is not per se needed but you might need to change the .sh script otherwise)</p>
+<ul>
+<li>RStudioHTML-style</li>
+<li>createNiceHTMLFromPolymode.sh</li>
+</ul>
+<p>Then execute</p>
+<p>./createNiceHTMLFromPolymode.sh <yourHTMLfile> <HTMLoutputfile></p>
+<p>That's it. You should have your nicely formatted HTML file. Thanks to RStudio developers for providing this style and makes life nicer ;).</p>
